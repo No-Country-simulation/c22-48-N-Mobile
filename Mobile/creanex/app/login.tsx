@@ -10,13 +10,11 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-      {/* Logo */}
       <Image
-        source={require('../assets/images/logo.png')} // Asegúrate de que tengas el archivo en assets/logo.png
+        source={require('../assets/images/logo.png')}
         style={styles.logo}
       />
 
-      {/* Email Input */}
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -25,7 +23,6 @@ export default function Login() {
         placeholderTextColor="#999"
       />
 
-      {/* Password Input */}
       <View style={styles.passwordContainer}>
         <TextInput
           style={[styles.input, styles.passwordInput]}
@@ -39,17 +36,15 @@ export default function Login() {
         </TouchableOpacity>
       </View>
 
-      {/* Forgot Password */}
+      
       <TouchableOpacity>
         <Text style={styles.forgotPassword}>¿Olvidaste tu contraseña?</Text>
       </TouchableOpacity>
 
-      {/* Login Button */}
       <TouchableOpacity style={styles.button} onPress={() => router.push('/home')}>
         <Text style={styles.buttonText}>Ingresar</Text>
       </TouchableOpacity>
 
-      {/* Footer */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>¿No tenés cuenta?</Text>
         <Link href="/register" style={styles.registerText}>Registrate</Link>
