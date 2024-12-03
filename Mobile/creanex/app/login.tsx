@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-import { NavigationProp } from '@react-navigation/native';
+import { useRouter } from 'expo-router';
+import { Link } from 'expo-router';
 
-export default function Login({ navigation }: { navigation: NavigationProp<any> }) {
+export default function Login() {
+    const router = useRouter();
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   return (
@@ -43,16 +45,14 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
       </TouchableOpacity>
 
       {/* Login Button */}
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity style={styles.button} onPress={() => router.push('/home')}>
         <Text style={styles.buttonText}>Ingresar</Text>
       </TouchableOpacity>
 
       {/* Footer */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>¿No tenés cuenta?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-          <Text style={styles.registerText}>Registrate</Text>
-        </TouchableOpacity>
+        <Link href="/register" style={styles.registerText}>Registrate</Link>
       </View>
     </View>
   );
