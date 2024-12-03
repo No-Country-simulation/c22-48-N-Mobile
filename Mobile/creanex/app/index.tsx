@@ -1,19 +1,46 @@
-import { View, Text, Button, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 
-export default function Index() {
+export default function WelcomeScreen() {
   const router = useRouter();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push('/login'); 
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bienvenido</Text>
-      <Button title="Iniciar Sesión" onPress={() => router.push('/login')} />
-      <Button title="Registrarse" onPress={() => router.push('/register')} />
+      <Image
+        source={require('../assets/images/logo.png')}
+        style={styles.logo}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  logo: {
+    width: 200,
+    height: undefined,
+    aspectRatio: 1, 
+    resizeMode: 'contain',
+    marginBottom: 20,
+  },
+  slogan: {
+    fontSize: 18,
+    color: '#555',
+    textAlign: 'center',
+    marginTop: 10,
+  },
 });
