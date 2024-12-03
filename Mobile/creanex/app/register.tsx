@@ -101,12 +101,13 @@ export default function RegisterScreen() {
             <Picker.Item label="Soy inversionista" value="inversionista" />
           </Picker>
         </View>
-      </View>
+      </View >
 
-      {/* Botón de registro */}
+      <View style={styles.buttonContainer}>
       <TouchableOpacity style={styles.button} onPress={() => router.push('/home')}>
         <Text style={styles.buttonText}>Ingresar</Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -174,8 +175,12 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
   },
+  buttonContainer: {
+    alignItems: 'center',
+    marginTop: 20,
+  },
   button: {
-    width: '100%',
+    width: '50%',
     height: 50,
     backgroundColor: '#FF6B6B',
     justifyContent: 'center',
