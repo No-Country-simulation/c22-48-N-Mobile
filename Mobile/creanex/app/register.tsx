@@ -104,7 +104,7 @@ export default function RegisterScreen() {
       </View >
 
       <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} onPress={() => router.push('/home')}>
+      <TouchableOpacity style={styles.button} onPress={() => router.push('/emprendedorHome')}>
         <Text style={styles.buttonText}>Ingresar</Text>
       </TouchableOpacity>
       </View>
