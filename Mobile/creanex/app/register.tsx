@@ -14,6 +14,24 @@ export default function RegisterScreen() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
+  const handleRegister = () => {
+    if (!fullName || !email || !password || !confirmPassword) {
+      alert('Por favor, completa todos los campos');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert('Las contraseñas no coinciden');
+      return;
+    }
+
+    if (selectedRole === 'emprendedor') {
+      router.push('/emprendedorHome');
+    } else if (selectedRole === 'inversionista') {
+      router.push('/inversorHome');
+    };
+  }
+
   return (
     <View style={styles.container}>
       {/* Logo */}
@@ -64,7 +82,7 @@ export default function RegisterScreen() {
             placeholderTextColor="#999"
           />
           <TouchableOpacity onPress={() => setPasswordVisible(!passwordVisible)}>
-            <Text style={styles.togglePassword}>{passwordVisible ? '🙈' : '👁️'}</Text>
+            <Text style={styles.togglePassword}>{passwordVisible ? '👁️' : '🙈'}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -83,7 +101,7 @@ export default function RegisterScreen() {
             placeholderTextColor="#999"
           />
           <TouchableOpacity onPress={() => setConfirmPasswordVisible(!confirmPasswordVisible)}>
-            <Text style={styles.togglePassword}>{confirmPasswordVisible ? '🙈' : '👁️'}</Text>
+            <Text style={styles.togglePassword}>{confirmPasswordVisible ? '👁️' : '🙈'}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -104,8 +122,8 @@ export default function RegisterScreen() {
       </View >
 
       <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} onPress={() => router.push('/emprendedorHome')}>
-        <Text style={styles.buttonText}>Ingresar</Text>
+      <TouchableOpacity style={styles.button} onPress={handleRegister}>
+        <Text style={styles.buttonText}>Registrar</Text>
       </TouchableOpacity>
       </View>
     </View>
