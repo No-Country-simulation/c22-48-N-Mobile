@@ -37,7 +37,7 @@ const Proyectoscreen = () => {
 
     const handleProjectPress = (project: { id: string; title: string; description: string; image: any; category: string; location: string; information: string }) => {
         router.push({
-            pathname: '/detalleCampaña',
+            pathname: '/detallePantalla',
             params: {
                 id: project.id,
                 title: project.title,
