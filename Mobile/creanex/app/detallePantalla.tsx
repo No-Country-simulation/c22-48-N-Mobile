@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { useSearchParams } from 'expo-router/build/hooks';
+import { router } from 'expo-router';
 
 
 const CampaignDetail = () => {
@@ -85,7 +86,7 @@ const CampaignDetail = () => {
             </View>
 
             {/* Botón de Apoyar */}
-            <TouchableOpacity style={styles.supportButton}>
+            <TouchableOpacity style={styles.supportButton} onPress={() => router.push('/apoyarProyecto')}>
                 <Text style={styles.supportButtonText}>Apoyar Proyecto</Text>
             </TouchableOpacity>
         </ScrollView>
