@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
@@ -14,6 +15,10 @@ const PaymentMethod = () => {
             return;
         }
         alert('Pago procesado con éxito');
+
+        setTimeout(() => {
+            router.push({ pathname: '/inversorCompletedo' }); // Navegar a la pantalla de éxito
+        }, 1000);
     };
 
     return (
