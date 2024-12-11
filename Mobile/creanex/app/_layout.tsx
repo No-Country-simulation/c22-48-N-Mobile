@@ -8,6 +8,8 @@ export default function RootLayout() {
       <Stack.Screen name="register" options={{ title: 'Registro' }} />
       <Stack.Screen name="emprendedorHome" options={{ title: 'Inicio' }} />
       <Stack.Screen name="inversionistaHome" options={{ title: 'Inicio' }} />
+      <Stack.Screen name="proyectos" options={{ title: 'Proyectos' }} />
+      <Stack.Screen name="detalleCampaña" options={{ title: 'Detalle de Campaña' }} />
     </Stack>
   );
 }

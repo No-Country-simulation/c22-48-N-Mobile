@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image, Modal, Button } from 'react-native';
 
@@ -100,7 +101,7 @@ const InversorHome = () => {
             />
 
             {/* Crear mi campaña */}
-            <TouchableOpacity style={styles.createButton}>
+            <TouchableOpacity style={styles.createButton} onPress={() => router.push('/proyectos')}>
                 <Text style={styles.createButtonText}>Descubre proyectos</Text>
             </TouchableOpacity>
         </View>
