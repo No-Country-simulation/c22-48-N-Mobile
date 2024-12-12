@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import Slider from '@react-native-community/slider';
-import { useRouter } from 'expo-router';
+import { useRouter,  } from 'expo-router';
+import { useSearchParams } from 'expo-router/build/hooks';
 
 const CreateCampaign = () => {
     const router = useRouter();
+    const searchParams = useSearchParams();
 
     const [projectName, setProjectName] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState(searchParams.get('category') || '');
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
     const [goal, setGoal] = useState(100000); // Valor inicial del slider
+
+    const handleCategorySelection = () => {
+        router.push({
+            pathname: '/categoria',
+            params: {
+                currentCategory: category,
+            },
+        });
+    };
 
     const handleLaunchProject = () => {
         if (!projectName || !category || !location || !description) {
@@ -38,12 +49,11 @@ const CreateCampaign = () => {
             {/* Categoría */}
             <View style={styles.inputGroup}>
                 <Text style={styles.label}>Categoría</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Selecciona una categoría"
-                    value={category}
-                    onChangeText={setCategory}
-                />
+                <TouchableOpacity style={styles.categoryButton} onPress={handleCategorySelection}>
+                    <Text style={styles.categoryText}>
+                        {category ? category : 'Selecciona una categoría'}
+                    </Text>
+                </TouchableOpacity>
             </View>
 
             {/* Ubicación */}
@@ -94,7 +104,7 @@ const CreateCampaign = () => {
             <TouchableOpacity style={styles.option}>
                 <Text style={styles.optionText}>Rentabilidad</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.option}>
+            <TouchableOpacity style={styles.option} onPress={() => router.push('/agregarImagen')}>
                 <Text style={styles.optionText}>Agregar imagen</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.option}>
@@ -166,6 +176,19 @@ const styles = StyleSheet.create({
     optionText: {
         fontSize: 16,
         color: '#007bff',
+    },
+    categoryButton: {
+        borderWidth: 1,
+        borderColor: '#ddd',
+        borderRadius: 8,
+        padding: 12,
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        backgroundColor: '#f9f9f9',
+    },
+    categoryText: {
+        fontSize: 16,
+        color: '#333',
     },
     launchButton: {
         backgroundColor: '#ff6b6b',
