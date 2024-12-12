@@ -107,7 +107,7 @@ const CreateCampaign = () => {
             <TouchableOpacity style={styles.option} onPress={() => router.push('/agregarImagen')}>
                 <Text style={styles.optionText}>Agregar imagen</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.option}>
+            <TouchableOpacity style={styles.option} onPress={() => router.push('/recompensa')}>
                 <Text style={styles.optionText}>Recompensa</Text>
             </TouchableOpacity>
 
