@@ -24,6 +24,8 @@ const RewardsScreen = () => {
         }
         alert('¡Recompensas guardadas con éxito!');
         router.push('/creacionCampain'); // Redirige a la pantalla de creación de campaña
+
+        
     };
 
     return (

@@ -30,7 +30,7 @@ const CreateCampaign = () => {
         }
         alert('¡Proyecto lanzado con éxito!');
         // Aquí puedes manejar la lógica para guardar o enviar los datos del proyecto
-        router.push('/emprendedorHome'); // Redirige al home del emprendedor
+        router.push('/emprendedorCompletado'); // Redirige al home del emprendedor
     };
 
     return (
