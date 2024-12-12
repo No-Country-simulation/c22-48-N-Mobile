@@ -121,10 +121,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     acceptButton: {
-        backgroundColor: '#ff6b6b',
-        padding: 16,
-        borderRadius: 8,
-        alignItems: 'center',
+        marginTop: 16,
+        backgroundColor: '#ff6b6b', // Color del botón
+        paddingVertical: 10, // Reduce el alto del botón
+        paddingHorizontal: 20, // Reduce el ancho interno
+        borderRadius: 8, // Bordes redondeados
+        alignSelf: 'center', 
     },
     acceptButtonText: {
         color: '#fff',

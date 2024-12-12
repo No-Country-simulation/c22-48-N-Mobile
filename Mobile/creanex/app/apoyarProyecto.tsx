@@ -62,11 +62,12 @@ const styles = StyleSheet.create({
     optionTitle: { fontSize: 16, fontWeight: 'bold' },
     optionDescription: { fontSize: 14, color: '#555', marginTop: 4 },
     supportButton: {
-        backgroundColor: '#ff6b6b',
-        padding: 16,
-        borderRadius: 8,
-        alignItems: 'center',
         marginTop: 16,
+        backgroundColor: '#ff6b6b', // Color del botón
+        paddingVertical: 10, // Reduce el alto del botón
+        paddingHorizontal: 20, // Reduce el ancho interno
+        borderRadius: 8, // Bordes redondeados
+        alignSelf: 'center', 
     },
     supportButtonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
 });
